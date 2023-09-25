@@ -4,6 +4,7 @@ import {General} from './component/general';
 import {Education} from './component/education';
 import {PraticalExperience} from './component/pratical_experience';
 import {CvDisplay} from './component/cv_display';
+import {AccordionContainers} from './component/accordion';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 
   
   function addGeneralInfo(info) {
+    console.log(info)
     setUserInput(currentInput =>{return {
          ...currentInput,fullName: info.fullName, phoneNumber: info.phoneNumber, email: info.email
       }
@@ -29,7 +31,8 @@ function App() {
   return (
     <div className='body_container'>
       <div className='left_side_of_body'>
-        <General userData = {addGeneralInfo}/>
+        <AccordionContainers userData = {addGeneralInfo} header={"General"} typeOfForms={"FirstForm"}/>
+        
         <Education />
         <PraticalExperience />
       </div>

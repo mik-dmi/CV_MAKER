@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import ChevronDown from './icons/chevron_down.svg'
 
 
+
 export function General({userData}){
     const [newInput, setInput] = useState({
         fullName: "",
@@ -55,12 +56,13 @@ export function General({userData}){
 
             
             />
-          </button>
+    </button>
+        
         <div 
         style={{height: toggle ? `${heightEl}` : "0px"}}
         className={toggle ? "accordion_toggle animated" : "accordion_toggle"}
-        ref={refHeight}>
-          <form onSubmit={handleSubmit}  className="forms" ref={refHeight} aria-hidden = {toggle ? "true" : "false"} >
+        >
+          <form onSubmit={handleSubmit}  className="forms" ref={refHeight}  aria-hidden = {toggle ? "true" : "false"} >
             <div className="label_input_container"
             >
               <label>Full Name:</label> 
@@ -88,9 +90,9 @@ export function General({userData}){
                   onChange={handleInputChange}
                   type="email" /> 
             </div>
-                <div className="submit_forms_button">
-                    <button className="submit_button">ADD</button>
-                </div>
+            <div className="submit_forms_button">
+                <button className="submit_button">ADD</button>
+            </div>
           </form>
         </div>
       
