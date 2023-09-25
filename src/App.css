@@ -31,14 +31,35 @@ html {
 
 }
 
-.general_forms_contianer{
+.general_forms_container{
   display: flex;
   flex-direction: column;
   width: fit-content;
-  height: fit-content;
+  
   border: 1px solid black;
   border-radius: 0.3rem;
+  margin: 2rem;
   
+}
+.general_forms_button{
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  justify-content:space-between;
+  align-items: center;
+}
+.general_forms_button img.active{
+  transform: rotate(180deg);
+}
+.imgChev{
+  width: 5%; 
+  height: 40%;
+}
+.title_forms{
+  font-size: 1rem;
+  padding: 0rem 0.3rem 0.1rem 0.1rem ;
+  font-weight: 700;
+
 }
 .forms_header{
   font-size: 1rem;
@@ -66,6 +87,7 @@ input{
     display: flex;
     justify-content: flex-start;
     margin: 1rem;
+    margin-bottom: 0.6rem;
   }
   .submit_button{
     font-size: 0.8em;
@@ -73,3 +95,20 @@ input{
     padding: 0.3rem 0.6em 0.3em 0.6em;
     font-weight: 500;
   }
+  .accordion_toggle{
+    height: fit-content;
+    opacity:0;
+    transition: 
+    opacity 0.3s ease-in-out,
+    height 0.3s 0.3s ease-in-out;
+
+  }
+
+  .animated{
+    opacity:1;
+    transition: 
+    height 0.3s ease-in-out,
+    opacity 0.3s 0.3s ease-in-out;
+  }
+
+
