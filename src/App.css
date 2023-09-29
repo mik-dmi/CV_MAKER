@@ -101,6 +101,7 @@ input{
     transition: 
     opacity 0.3s ease-in-out,
     height 0.3s 0.3s ease-in-out;
+    overflow: hidden
 
   }
 
@@ -116,6 +117,21 @@ input{
 
   }
 
+  .add_another_forms_container{
+    color: #c51010;
+  }
+  .delete_forms_container{
+    color: aquamarine;
+  }
 
+.another_forms_button{
+  background-color: transparent;
+  border:0.1rem dashed rgb(51, 109, 190) ;
+}
+
+.delete_forms_button{
+  background-color: transparent;
+  border:0.1rem solid rgb(194, 45, 45) ;
+}
 
 

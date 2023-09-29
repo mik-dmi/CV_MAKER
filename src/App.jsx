@@ -1,40 +1,59 @@
 import { useState } from 'react'
 import './App.css'
-import {General} from './component/general';
-import {Education} from './component/education';
+import { FormGeneral } from './component/forms/form_general';
+import { FormEducation } from './component/forms/form_education';
 import {PraticalExperience} from './component/pratical_experience';
 import {CvDisplay} from './component/cv_display';
 import {AccordionContainers} from './component/accordion';
 
 
 function App() {
-  const [userInput, setUserInput] = useState({
+  const [userInputGeneral, setUserInputGeneral] = useState({
     fullName: "",
     phoneNumber: "",
     email: ""
   })
 
-  
-  function addGeneralInfo(info) {
-    console.log(info)
-    setUserInput(currentInput =>{return {
-         ...currentInput,fullName: info.fullName, phoneNumber: info.phoneNumber, email: info.email
-      }
-  
-    })
+  const [userInputEducation, setUserInputEducation] = useState([{
+      degree: "",
+      institution:"",
+      graduationDate: "",
+      academicDescription:""
+  }])
 
+  
+  function addGeneralInfo(generalInfo) {
+    //console.log(generalInfo)
+    setUserInputGeneral(currentInput =>{return {
+         ...currentInput,fullName: generalInfo.fullName, phoneNumber: generalInfo.phoneNumber, email: generalInfo.email
+      }
+    })
   } 
-   console.log("Full Name: " + userInput.fullName);
-  console.log("Phone Number: " + userInput.phoneNumber);
-  console.log("Email: " + userInput.email);
+
+
+  function addEducationalInfo(educationInfo) {
+    
+    setUserInputEducation([...userInputEducation, {
+      degree: educationInfo.degree,
+      institution: educationInfo.institution ,
+      graduationDate: educationInfo.graduationDate,
+      academicDescription: educationInfo.academicDescription
+    }]);
+  };
+
+  console.log("ola")
+  console.log( userInputEducation);
+
+  //console.log("Full Name: " + userInputGeneral[].fullName);
+  //console.log("Phone Number: " + userInputGeneral.phoneNumber);
+  //console.log("Email: " + userInputGeneral.email);
   
   return (
     <div className='body_container'>
       <div className='left_side_of_body'>
-        <AccordionContainers userData = {addGeneralInfo} header={"General"} typeOfForms={"FirstForm"}/>
         
-        <Education />
-        <PraticalExperience />
+        <PraticalExperience/><AccordionContainers userData = {addGeneralInfo} header={"General"} typeOfForms={"GeneralForm"} FormComponent={FormGeneral} />
+        <AccordionContainers userData = {addEducationalInfo} header={"Education"} typeOfForms={"EducationForm"} FormComponent={FormEducation}/>
       </div>
       <div className='right_side_of_body'>
         <CvDisplay />  

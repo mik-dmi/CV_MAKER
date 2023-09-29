@@ -61,7 +61,7 @@ export function FormGeneral({formsInput}) {
                 type="email" /> 
             </div>
                 <div className="submit_forms_button">
-                    <button className="submit_button">ADD</button>
+                    <button className="submit_button">Save</button>
                 </div>
           </form>
     );
