@@ -9,23 +9,24 @@ export function AccordionContainers({ userData, header, typeOfForms, FormCompone
   const [toggle, setToggle] = useState({
     GeneralForm: false,
     EducationForm: false,
-    // Add more forms as needed
+    ProfessionalForm: false,
+    // Add  forms
   });
   const [heightEl, setHeightEl] = useState({
-    GeneralForm: "0px", // Initialize with a default height value
-    EducationForm: "0px", // Initialize with a default height value
-    // Add more forms as needed
+    GeneralForm: "0px", // Initialize  height 
+    EducationForm: "0px", // Initialize  height 
+    ProfessionalForm: "0px",
+    // Add more forms 
   });
   const [addFormList, setAddFormList ] = useState([<FormComponent formsInput={userData} />]
   )
-  const addAnotherEducation = () => {
-    // Create a new education form instance and add it to the list
-    const newEducationForm = <FormComponent formsInput={userData} />;
-    setAddFormList((prevForms) => [...prevForms, newEducationForm]);
+  const addAnotherForms = () => {
+    const newForm = <FormComponent formsInput={userData} />;
+    setAddFormList((prevForms) => [...prevForms, newForm]);
   }
   const refHeights = useRef({}); // Initialize ref with null
   useEffect(() => {
-    // Update the height value in the state for the specific accordion type
+    // Update the height in the state for the specific accordion type
     setHeightEl((prevHeightEl) => ({
       ...prevHeightEl,
       [typeOfForms]: refHeights.current ?
@@ -39,6 +40,13 @@ export function AccordionContainers({ userData, header, typeOfForms, FormCompone
       [type]: !prevToggle[type],
     }));
   };
+
+
+  const deleteEducationForm  = (deletePosition)=> { 
+    const newArrForms = addFormList.filter( (_,aux)=> aux !== deletePosition)
+    setAddFormList(newArrForms)
+  }
+
 
   return (
     <div className="general_forms_container">
@@ -69,22 +77,27 @@ export function AccordionContainers({ userData, header, typeOfForms, FormCompone
          {singleForm}
 
         {typeOfForms !== "GeneralForm" &&(
-          <>
-          <div  className="add_another_forms_container">
-            {addFormList.length -1=== index && addFormList.length < 5 &&<button onClick={addAnotherEducation}
-             className="another_forms_button">Add another Education</button>}
-          </div> 
-          <div className="delete_forms_container">
-              {addFormList.length === 1  && addFormList.length < 5 &&<button onClick ={() =>console.log("Helllo")}
-              className="delete_forms_button">Delete Education Fied</button>}
+          <div className='bottom_buttons'>
+            <div  className="add_another_forms_container">
+              {addFormList.length -1 === index && addFormList.length < 3 &&<button onClick={addAnotherForms}
+              className="another_forms_button">Add</button>}
+            </div> 
+            <div className="delete_forms_container">
+            {index > 0  && <button onClick ={()=>(deleteEducationForm(index)) }
+            className="delete_forms_button">Delete</button>}
+                {index === 0 && (
+              <button
+                onClick={() => deleteEducationForm(index)}
+                className="delete_forms_button"
+                style={{ display: 'none' }}
+              >X</button>
+            )}
+            </div>
           </div>
-        </>
+      
       )}
       </div>
       ))}
-        
-
-
     </div>
   );
 }

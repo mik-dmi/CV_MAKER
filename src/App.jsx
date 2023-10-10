@@ -2,63 +2,71 @@ import { useState } from 'react'
 import './App.css'
 import { FormGeneral } from './component/forms/form_general';
 import { FormEducation } from './component/forms/form_education';
-import {PraticalExperience} from './component/pratical_experience';
+import {FormProfessional} from './component/form_professional';
 import {CvDisplay} from './component/cv_display';
 import {AccordionContainers} from './component/accordion';
+
 
 
 function App() {
   const [userInputGeneral, setUserInputGeneral] = useState({
     fullName: "",
     phoneNumber: "",
-    email: ""
+    email: "",
+    linkedIn: ""
   })
-
   const [userInputEducation, setUserInputEducation] = useState([{
       degree: "",
       institution:"",
       graduationDate: "",
       academicDescription:""
+}])
+  const [userInputProfessional, setUserInputProfessional]= useState([{
+      positionName: "",
+      company: "",
+      location:"",
+      startDate:"",
+      endDate:"",
+      professionalDescription:""
   }])
-
-  
   function addGeneralInfo(generalInfo) {
     //console.log(generalInfo)
     setUserInputGeneral(currentInput =>{return {
-         ...currentInput,fullName: generalInfo.fullName, phoneNumber: generalInfo.phoneNumber, email: generalInfo.email
+         ...currentInput,fullName: generalInfo.fullName, phoneNumber: generalInfo.phoneNumber, email: generalInfo.email,  linkedIn: generalInfo.linkedIn
       }
     })
   } 
-
-
   function addEducationalInfo(educationInfo) {
-    
-    setUserInputEducation([...userInputEducation, {
+    setUserInputEducation((prevEducation) => [...prevEducation, {
       degree: educationInfo.degree,
       institution: educationInfo.institution ,
       graduationDate: educationInfo.graduationDate,
       academicDescription: educationInfo.academicDescription
     }]);
   };
-
-  console.log("ola")
-  console.log( userInputEducation);
+  function addProfessionalInfo(professionalInfo){
+    setUserInputProfessional((prevProfessional) =>[...prevProfessional,{
+      positionName: professionalInfo.positionName,
+      company: professionalInfo.company ,
+      location: professionalInfo.location,
+      startDate: professionalInfo.startDate,
+      endDate: professionalInfo.endDate,
+      professionalDescription: professionalInfo.professionalDescription
+    }])
+  }
 
   //console.log("Full Name: " + userInputGeneral[].fullName);
   //console.log("Phone Number: " + userInputGeneral.phoneNumber);
   //console.log("Email: " + userInputGeneral.email);
-  
   return (
     <div className='body_container'>
       <div className='left_side_of_body'>
-        
-        <PraticalExperience/><AccordionContainers userData = {addGeneralInfo} header={"General"} typeOfForms={"GeneralForm"} FormComponent={FormGeneral} />
+        <AccordionContainers userData = {addGeneralInfo} header={"General"} typeOfForms={"GeneralForm"} FormComponent={FormGeneral} />
         <AccordionContainers userData = {addEducationalInfo} header={"Education"} typeOfForms={"EducationForm"} FormComponent={FormEducation}/>
+        <AccordionContainers userData = {addProfessionalInfo} header={"Professional Experience"} typeOfForms={"ProfessionalForm"} FormComponent={FormProfessional}/>
       </div>
-      <div className='right_side_of_body'>
-        <CvDisplay />  
-      </div>
-
+      <CvDisplay generalData = {userInputGeneral} educationData = {userInputEducation} />  
+  
     </div>
   )
 }

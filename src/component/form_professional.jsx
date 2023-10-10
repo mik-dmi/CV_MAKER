@@ -1,14 +1,17 @@
 import React from 'react';
 import { useState } from "react"
 
-
-export function FormEducation({formsInput}) {
+export function FormProfessional({}){
     const [newInput, setInput] = useState({
-        degree: "",
-        institution:"",
-        graduationDate : "",
-        academicDescription :""
+        positionName: "",
+        company: "",
+        location:"",
+        startDate:"",
+        endDate:"",
+        professionalDescription:""
       })
+
+    
     
     function handleSubmit(e){
         console.log("aquii" + newInput    )
@@ -16,10 +19,12 @@ export function FormEducation({formsInput}) {
         if(newInput === "")return
         formsInput(newInput)      /*send the NewInput back to main (App.lsx)*/
         setInput(() => {return { 
-            degree: "",
-            institution:"",
-            graduationDate : "",
-            academicDescription :""
+            positionName: "",
+            company: "",
+            location:"",
+            startDate:"",
+            endDate:"",
+            professionalDescription:""
           }})
     }
     function handleInputChange(event) {
@@ -33,36 +38,53 @@ export function FormEducation({formsInput}) {
     return (
         <form onSubmit={handleSubmit}  className="forms" >
             <div className="label_input_container" >
-                <label>Name Of Institution:</label> 
+                <label>Position:</label> 
                 <input 
                 type="text"
-                name="institution"
-                value={newInput.institution}
+                name="positionName"
+                value={newInput.positionName}
                 onChange={handleInputChange}
                 /> 
             </div>
             <div className="label_input_container">
-                <label>Degree:</label> 
+                <label>Company:</label> 
                 <input 
                 type="text"    
-                name = "degree"
-                value={newInput.degree}
+                name = "company"
+                value={newInput.company}
                 onChange={handleInputChange}
                 /> 
             </div>
             <div className="label_input_container">
-                <label>Graduation Date:</label>
+                <label>Location:</label> 
                 <input 
-                name ="graduationDate "
-                value={newInput.graduationDate}
+                type="text"    
+                name = "location"
+                value={newInput.location}
+                onChange={handleInputChange}
+                /> 
+            </div>
+            <div className="label_input_container">
+                <label>Starting Date:</label>
+                <input 
+                name ="startDate"
+                value={newInput.startDate}
                 onChange={handleInputChange}
                 type="date" /> 
             </div>
             <div className="label_input_container">
-                <label>Education Description:</label>
+                <label>Ending Date:</label>
                 <input 
-                name = "academicDescription"
-                value={newInput.academicDescription}
+                name ="endDate"
+                value={newInput.endDate}
+                onChange={handleInputChange}
+                type="date" /> 
+            </div>
+            <div className="label_input_container">
+                <label>Description:</label>
+                <input 
+                name = "professionalDescription"
+                value={newInput.professionalDescription}
                 onChange={handleInputChange}
                 type="text" /> 
             </div>

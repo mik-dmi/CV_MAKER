@@ -3,24 +3,19 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
- 
 }
 html {
   font-size: 25px; /* Set the root font size to 10px (adjust as needed) */
 }
- 
 .body_container{
   display: flex;
   flex-direction: row;
   height: 100vh;
- 
   margin: 0;
-  
 }
 .left_side_of_body{
   height: 100vh;
   width: 35%;
-
 }
 .right_side_of_body{
   width: 21rem; /* A4 width in rem units (210mm) */
@@ -28,18 +23,14 @@ html {
   margin: 0 auto; /* Center the container horizontally on the page */
   background-color: #fff; /* Set a background color if needed */
   border: 1px solid #000; /* Add a border if desired */
-
 }
-
 .general_forms_container{
   display: flex;
   flex-direction: column;
   width: fit-content;
-  
   border: 1px solid black;
   border-radius: 0.3rem;
-  margin: 2rem;
-  
+  margin: 2rem; 
 }
 .general_forms_button{
   display: flex;
@@ -47,6 +38,7 @@ html {
   height: fit-content;
   justify-content:space-between;
   align-items: center;
+  cursor: pointer;
 }
 .general_forms_button img.active{
   transform: rotate(180deg);
@@ -59,35 +51,29 @@ html {
   font-size: 1rem;
   padding: 0rem 0.3rem 0.1rem 0.1rem ;
   font-weight: 700;
-
 }
 .forms_header{
   font-size: 1rem;
   font-weight: 700;
 }
-
 label{
   font-weight: 500;
   font-size: 0.8rem;
 }
-
 input{
   font-size: 0.6rem; 
 }
-
 .label_input_container{
   display: flex;
   padding: 0.8rem 1.8rem 0rem 0.8rem;
   flex-direction: column;
   align-items: flex-start;
 }
-
-
   .submit_forms_button{
     display: flex;
     justify-content: flex-start;
     margin: 1rem;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0rem;
   }
   .submit_button{
     font-size: 0.8em;
@@ -101,37 +87,47 @@ input{
     transition: 
     opacity 0.3s ease-in-out,
     height 0.3s 0.3s ease-in-out;
-    overflow: hidden
-
+    overflow: hidden;
   }
-
   .animated{
     opacity:1;
     transition: 
     height 0.3s ease-in-out,
     opacity 0.3s 0.3s ease-in-out;
+    padding: 0.5rem;
   }
-
   .forms{
     padding-bottom: 0.5rem;
-
   }
-
   .add_another_forms_container{
     color: #c51010;
+    margin-right: 0.5rem;
   }
   .delete_forms_container{
     color: aquamarine;
+    margin-right: 0.5rem; 
   }
-
+.delete_forms_button, .another_forms_button{
+  background-color: transparent;
+  border:0.1rem solid rgb(194, 45, 45) ;
+  font-size: 0.8rem;
+  color: red;
+  cursor: pointer;
+}
 .another_forms_button{
   background-color: transparent;
   border:0.1rem dashed rgb(51, 109, 190) ;
+  color: rgb(51, 109, 190) ;
+  display: flex;
 }
-
-.delete_forms_button{
-  background-color: transparent;
-  border:0.1rem solid rgb(194, 45, 45) ;
+.delete_forms_button:hover{
+  color: darkred;
 }
-
-
+.another_forms_button:hover{
+  color: rgb(13, 47, 95);
+}
+.bottom_buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -6,7 +6,8 @@ export function FormGeneral({formsInput}) {
     const [newInput, setInput] = useState({
         fullName: "",
         phoneNumber: "",
-        email: ""
+        email: "",
+        linkedIn: ""
       })
 
     
@@ -19,7 +20,8 @@ export function FormGeneral({formsInput}) {
         setInput(() => {return { 
             fullName: "",
             phoneNumber: "",
-            email: ""
+            email: "",
+            linkedIn: ""
           }})
     }
     function handleInputChange(event) {
@@ -59,6 +61,15 @@ export function FormGeneral({formsInput}) {
                 value={newInput.email}
                 onChange={handleInputChange}
                 type="email" /> 
+            </div>
+            <div className="label_input_container">
+                <label>LinkedIn:</label> 
+                <input 
+                type="url"    
+                name = "linkedIn"
+                value={newInput.linkedIn}
+                onChange={handleInputChange}
+                /> 
             </div>
                 <div className="submit_forms_button">
                     <button className="submit_button">Save</button>
