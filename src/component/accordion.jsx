@@ -1,10 +1,8 @@
 import ChevronDown from './icons/chevron_down.svg'
-import {FormGeneral} from './forms/form_general';
-import {FormEducation} from './forms/form_education';
 import { useState, useEffect, useRef } from "react"
 
 
-export function AccordionContainers({ userData, header, typeOfForms, FormComponent }) {
+export function AccordionContainers({ userData, header, typeOfForms, FormComponent , deleteForms }) {
   
   const [toggle, setToggle] = useState({
     GeneralForm: false,
@@ -18,10 +16,13 @@ export function AccordionContainers({ userData, header, typeOfForms, FormCompone
     ProfessionalForm: "0px",
     // Add more forms 
   });
-  const [addFormList, setAddFormList ] = useState([<FormComponent formsInput={userData} />]
+  const [addFormList, setAddFormList ] = useState([<FormComponent formsInput={userData} numbForm = {0} />]
   )
-  const addAnotherForms = () => {
-    const newForm = <FormComponent formsInput={userData} />;
+
+
+  const addAnotherForms = (position) => {
+    let aux = position +1
+    const newForm = <FormComponent formsInput={userData}  numbForm = {aux} />;
     setAddFormList((prevForms) => [...prevForms, newForm]);
   }
   const refHeights = useRef({}); // Initialize ref with null
@@ -43,8 +44,12 @@ export function AccordionContainers({ userData, header, typeOfForms, FormCompone
 
 
   const deleteEducationForm  = (deletePosition)=> { 
+    console.log("deletePosition antes = " + deletePosition)
     const newArrForms = addFormList.filter( (_,aux)=> aux !== deletePosition)
     setAddFormList(newArrForms)
+    
+    
+    deleteForms(typeOfForms ,deletePosition )     // send the type of forms it is being deleted and the position in of the forms deleted
   }
 
 
@@ -75,26 +80,24 @@ export function AccordionContainers({ userData, header, typeOfForms, FormCompone
         
     
          {singleForm}
+         
 
         {typeOfForms !== "GeneralForm" &&(
           <div className='bottom_buttons'>
             <div  className="add_another_forms_container">
-              {addFormList.length -1 === index && addFormList.length < 3 &&<button onClick={addAnotherForms}
-              className="another_forms_button">Add</button>}
+              {addFormList.length - 1 === index && addFormList.length < 3 && (
+                <button onClick={() => { addAnotherForms(index);  }}
+                className="another_forms_button">Add</button>)}
             </div> 
             <div className="delete_forms_container">
-            {index > 0  && <button onClick ={()=>(deleteEducationForm(index)) }
-            className="delete_forms_button">Delete</button>}
-                {index === 0 && (
-              <button
-                onClick={() => deleteEducationForm(index)}
-                className="delete_forms_button"
+              {index === addFormList.length -1 && <button onClick ={()=>(deleteEducationForm(index)) }
+              className="delete_forms_button">Delete</button>}
+                {index === 0 && (<button  onClick={() => deleteEducationForm(index)} className="delete_forms_button"
                 style={{ display: 'none' }}
-              >X</button>
-            )}
+                >X</button>
+                )}
             </div>
-          </div>
-      
+          </div>   
       )}
       </div>
       ))}

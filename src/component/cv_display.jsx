@@ -1,6 +1,8 @@
-export function CvDisplay({generalData, educationData}){
-    console.log("aquie")
-    console.log(educationData)
+
+
+
+export function CvDisplay({generalData,educationData, professionalData}){
+
     return(
         <div className='right_side_of_body'>
         <header>
@@ -23,7 +25,8 @@ export function CvDisplay({generalData, educationData}){
           <h2>Education</h2>
           {educationData.map((education, index)=>(
           <div key={index*5} className="education_section">
-            <h3>{educationData.degree}</h3>
+            <h3>{education.institution}</h3>
+          
             <ul>
                 <div className="place_and_date_container"> 
                     <h4>{education.degree}</h4> 
@@ -34,19 +37,28 @@ export function CvDisplay({generalData, educationData}){
           </div>
         ))}  
         </section>
-  
+
         <section id="experience">
           <h2>Professional Experience</h2>
-          <div className="experience-entry">
-            <h3>Position Title</h3>
-            <p>Company: Company Name</p>
-            <p>Location: Location of the Company</p>
-            <p>Start Date: Start Date</p>
-            <p>End Date: End Date</p>
-            <p>Description: Description of your responsibilities and achievements</p>
+          {professionalData.map((professional, index)=>(
+          <div key={index*5} className="professional_section">
+            <h3>{professional.positionName}</h3>
+          
+            <ul>
+                <div className="place_and_date_container"> 
+                    <h4>{professional.company}</h4> 
+                    <h4>{professional.location}</h4> 
+                </div>
+                <div>
+                  <h4>{professional.startDate} - {professional.endDate}</h4>
+                
+                </div>
+                <li>{professional.professionalDescription}</li>
+            </ul>
           </div>
-          {/* Add more experience entries as needed */}
+        ))}  
         </section>
+  
       </div>
     ) 
 }

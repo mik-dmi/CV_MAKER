@@ -2,26 +2,30 @@ import React from 'react';
 import { useState } from "react"
 
 
-export function FormEducation({formsInput}) {
+export function FormEducation({formsInput, numbForm}) {
     const [newInput, setInput] = useState({
         degree: "",
         institution:"",
         graduationDate : "",
-        academicDescription :""
+        academicDescription : "",
+        idNumberOfForms: numbForm
       })
+    //console.log("Aqui ====")
+    //console.log(numbForm) 
     
-    function handleSubmit(e){
-        console.log("aquii" + newInput    )
-        e.preventDefault()
-        if(newInput === "")return
-        formsInput(newInput)      /*send the NewInput back to main (App.lsx)*/
-        setInput(() => {return { 
-            degree: "",
-            institution:"",
-            graduationDate : "",
-            academicDescription :""
-          }})
-    }
+    function handleSubmit(e) {
+ 
+        if (newInput === "") return;
+        e.preventDefault();
+        formsInput(newInput); // Send newInput back to the parent component
+        setInput({
+          degree: "",
+          institution: "",
+          graduationDate: "",
+          academicDescription: "",
+          idNumberOfForms: newInput.idNumberOfForms
+        });
+      }
     function handleInputChange(event) {
         const { name, value } = event.target;
         setInput({
@@ -30,8 +34,11 @@ export function FormEducation({formsInput}) {
         });
       }  
     
+
+
     return (
-        <form onSubmit={handleSubmit}  className="forms" >
+        <form onSubmit={(e) =>{handleSubmit(e);} 
+        } className="forms" >
             <div className="label_input_container" >
                 <label>Name Of Institution:</label> 
                 <input 

@@ -1,20 +1,20 @@
 import React from 'react';
 import { useState } from "react"
 
-export function FormProfessional({}){
+export function FormProfessional({formsInput, numbForm}){
     const [newInput, setInput] = useState({
         positionName: "",
         company: "",
         location:"",
         startDate:"",
         endDate:"",
-        professionalDescription:""
+        professionalDescription:"",
+        idNumberOfForms: numbForm
       })
 
     
     
     function handleSubmit(e){
-        console.log("aquii" + newInput    )
         e.preventDefault()
         if(newInput === "")return
         formsInput(newInput)      /*send the NewInput back to main (App.lsx)*/
@@ -24,7 +24,8 @@ export function FormProfessional({}){
             location:"",
             startDate:"",
             endDate:"",
-            professionalDescription:""
+            professionalDescription:"",
+            idNumberOfForms: newInput.idNumberOfForms
           }})
     }
     function handleInputChange(event) {
@@ -36,7 +37,8 @@ export function FormProfessional({}){
       }  
     
     return (
-        <form onSubmit={handleSubmit}  className="forms" >
+        <form onSubmit={(e) =>{handleSubmit(e);} 
+        } className="forms" >
             <div className="label_input_container" >
                 <label>Position:</label> 
                 <input 
