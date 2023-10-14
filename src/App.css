@@ -1,12 +1,22 @@
+:root {
+  --titles-bg-color: rgb(6, 44, 80);
+  --header-container-bg-color: rgb(0, 102, 204, 0.597);
+  --titles-font-size: 0.9rem;
+}
 #root {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0 ;
   padding: 2rem;
-  text-align: center;
 }
 html {
   font-size: 25px; /* Set the root font size to 10px (adjust as needed) */
+  margin: 0;
 }
+h1, h2, h3 {
+  margin: 0;
+}
+
+/*----------------------------------- Global Rules ---------------------------------*/
 .body_container{
   display: flex;
   flex-direction: row;
@@ -17,13 +27,7 @@ html {
   height: 100vh;
   width: 35%;
 }
-.right_side_of_body{
-  width: 21rem; /* A4 width in rem units (210mm) */
-  height: 29.7rem; /* A4 height in rem units (297mm) */
-  margin: 0 auto; /* Center the container horizontally on the page */
-  background-color: #fff; /* Set a background color if needed */
-  border: 1px solid #000; /* Add a border if desired */
-}
+
 .general_forms_container{
   display: flex;
   flex-direction: column;
@@ -130,4 +134,97 @@ input{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+/* -------------------------------- cv BUILDER -------------------------------------------------- */
+/*--------------------------------- Beginning Header --------------------------------------------------- */
+.right_side_of_body{
+  width: 21rem; /* A4 width in rem units (210mm) */
+  height: 29.7rem; /* A4 height in rem units (297mm) */
+  margin: 0 auto; /* Center the container horizontally on the page */
+  background-color: #fff; /* Set a background color if needed */
+  border: 1px solid #000; /* Add a border if desired */
+  box-shadow: 0px 0px 0.2rem rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+.header_container{
+  text-align: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--header-container-bg-color);
+  font-size: 0.7rem;
+}
+.contact_info {
+  font-size: 0.6rem;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap:0.2rem;
+  flex-wrap: wrap;
+
+}
+.contact_info li {
+  flex: 1; 
+  text-align:center;
+  max-width: fit-content;
+}
+.contact_info li i {
+  display: flex;
+  justify-content: center;
+
+}
+/* ------------------------- End Header -------------------------*/
+.individual_education_section, .professional_section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top:0.4rem 0rem 0.5rem 0rem;
+  padding-left: 0.1rem;
+}
+h2 {
+  font-size: var(--titles-font-size);
+  color: var(--titles-bg-color);
+  padding-bottom: 0.1rem;
+}
+.education_container{
+  font-size: calc(var(--titles-font-size) * 0.7);
+}
+
+#education, #experience{
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1rem 0.5rem 1rem;
+  align-items: flex-start;
+}
+
+.education_details, .professional_details {
+  list-style: none;
+  padding: 0.1rem 0rem 0rem 0.2rem;
+  margin: 0rem;
+}
+.education_degree, .professional_company {
+  font-style: italic;
+  font-size: calc(var(--titles-font-size) * 0.7);
+
+}
+.education_graduation, .professional_location, .professional_dates {
+  color: #555;
+}
+.professional_description, .education_description {
+  margin-top: 0.1rem;
+  padding: 0.2rem;
+  margin-top: 0rem;
+  
+}
+.professional_details  .professional_description, .education_details .education_description{
+  font-size: calc(var(--titles-font-size) * 0.6);
+}
+.bullet_point:not(:empty)::before {
+  content: "\2022"; /* Unicode character for a black bullet (•) */
+  color: black; /* Color of the bullet point */
+  margin-right: 5px; /* Spacing between the bullet point and the text */
 }
