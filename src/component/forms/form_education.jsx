@@ -18,13 +18,13 @@ export function FormEducation({formsInput, numbForm}) {
         if (newInput === "") return;
         e.preventDefault();
         formsInput(newInput); // Send newInput back to the parent component
-        setInput({
+        /*setInput({
           degree: "",
           institution: "",
           graduationDate: "",
           academicDescription: "",
           idNumberOfForms: newInput.idNumberOfForms
-        });
+        });*/
       }
     function handleInputChange(event) {
         const { name, value } = event.target;

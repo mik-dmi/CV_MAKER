@@ -95,7 +95,7 @@ export function AccordionContainers({ userData, header, typeOfForms, FormCompone
                 className="another_forms_button">Add</button>)}
             </div> 
             <div className="delete_forms_container">
-              {index === addFormList.length -1 && <button onClick ={()=>(deleteEducationForm(index)) }
+              {(index === addFormList.length -1 && addFormList.length > 1)  && <button onClick ={()=>(deleteEducationForm(index)) }
               className="delete_forms_button">Delete</button>}
                 {index === 0 && (<button  onClick={() => deleteEducationForm(index)} className="delete_forms_button"
                 style={{ display: 'none' }}

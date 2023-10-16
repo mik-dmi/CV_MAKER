@@ -10,20 +10,28 @@ import {AccordionContainers} from './component/accordion';
 
 function App() {
   const [userInputGeneral, setUserInputGeneral] = useState({
-    fullName: "",
-    phoneNumber: "",
-    email: "",
-    linkedIn: ""
+    fullName: "Your Name",
+    phoneNumber: "+49xxxxxxxxxx",
+    email: "example@gmail.com",
+    linkedIn: "linkedin.com/in/xxxxxxx/"
   })
-  const [userInputEducation, setUserInputEducation] = useState([{},{},{}])
+  const [userInputEducation, setUserInputEducation] = useState([{
+    degree: "Your Degree",
+    institution:"Name of the Institution",
+    graduationDate : "XX-XX-20XX",
+    academicDescription : "Lorem ipsum , consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboriDuis a ute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugia",
+    idNumberOfForms: ""
+  }
+])
   const [userInputProfessional, setUserInputProfessional]= useState([{
-      positionName: "",
-      company: "",
-      location:"",
-      startDate:"",
-      endDate:"",
-      professionalDescription:""
-  }])
+      positionName: "Name of th Position",
+      company: "Company's Name",
+      location:"Location",
+      startDate:"XX-XX-20XX",
+      endDate:"XX-XX-20XX",
+      professionalDescription:"Lorem ipsum , consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboriDuis a ute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugia"
+  }
+])
   function addGeneralInfo(generalInfo) {
     //console.log(generalInfo)
     setUserInputGeneral(currentInput =>{return {

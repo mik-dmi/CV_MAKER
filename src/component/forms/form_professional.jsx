@@ -18,7 +18,7 @@ export function FormProfessional({formsInput, numbForm}){
         e.preventDefault()
         if(newInput === "")return
         formsInput(newInput)      /*send the NewInput back to main (App.lsx)*/
-        setInput(() => {return { 
+       /* setInput(() => {return { 
             positionName: "",
             company: "",
             location:"",
@@ -26,7 +26,7 @@ export function FormProfessional({formsInput, numbForm}){
             endDate:"",
             professionalDescription:"",
             idNumberOfForms: newInput.idNumberOfForms
-          }})
+          }})*/
     }
     function handleInputChange(event) {
         const { name, value } = event.target;

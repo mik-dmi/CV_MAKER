@@ -179,32 +179,28 @@ textarea{
   background-color: #3c8292;
   transform: scale(0.9);
 }
-
-
-
-
-  .accordion_toggle{
-    height: fit-content;
-    opacity:0;
-    background:#efe1a1b7;
-   transition: 
-    opacity 0.3s ease-in-out, 
-    height 0.3s 0.3s ease-in-out;
-    overflow: hidden;
-  }
-  .animated{
-    opacity:1;
-    transition: 
-    height 0.3s ease-in-out,
-    opacity 0.3s 0.1s ease-in-out;
-    padding: 0.5rem 0rem 0rem 0rem;
-    height: fit-content !important;
-    border-bottom: 0.05rem solid black;
-  }
-  .general_forms_container .accordion_toggle.animated:last-child{
-    border-bottom:none;
-    border-radius: 0.3rem;
-  }
+.accordion_toggle{
+  height: fit-content;
+  opacity:0;
+  background:#efe1a1b7;
+  transition: 
+  opacity 0.3s ease-in-out, 
+  height 0.3s 0.3s ease-in-out;
+  overflow: hidden;
+}
+.animated{
+  opacity:1;
+  transition: 
+  height 0.3s ease-in-out,
+  opacity 0.3s 0.1s ease-in-out;
+  padding: 0.5rem 0rem 0rem 0rem;
+  height: fit-content !important;
+  border-bottom: 0.05rem solid black;
+}
+.general_forms_container .accordion_toggle.animated:last-child{
+  border-bottom:none;
+  border-radius: 0.3rem;
+}
 
  
 .delete_forms_button, .another_forms_button{
@@ -290,17 +286,22 @@ textarea{
 h2 {
   font-size: var(--titles-font-size);
   color: var(--titles-bg-color);
-  padding-bottom: 0.1rem;
+  padding-bottom: 0rem;
 }
+h3{
+  padding-top:0.2rem ;
+}
+
 .education_container ,.experience_container{
   font-size: calc(var(--titles-font-size) * 0.7);
   width: 100%;
+  border-top: 0.1rem solid var(--titles-bg-color);
 }
 
 #education, #experience{
   display: flex;
   flex-direction: column;
-  padding: 0rem 1rem 0.5rem 1rem;
+  padding: 0rem 1.5rem 0.5rem 1.5rem;
   align-items: flex-start;
 }
 
@@ -319,6 +320,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   padding-bottom: 0.1rem;
+  list-style: none;
 }
 .company_and_dates{
   display: flex;

@@ -17,12 +17,12 @@ export function FormGeneral({formsInput}) {
         e.preventDefault()
         if(newInput === "")return
         formsInput(newInput)      /*send the NewInput back to main (App.lsx)*/
-        setInput(() => {return { 
+        /*setInput(() => {return { 
             fullName: "",
             phoneNumber: "",
             email: "",
             linkedIn: ""
-          }})
+          }})*/
     }
     function handleInputChange(event) {
         const { name, value } = event.target;
