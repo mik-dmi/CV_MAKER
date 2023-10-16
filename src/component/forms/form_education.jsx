@@ -46,6 +46,8 @@ export function FormEducation({formsInput, numbForm}) {
                 name="institution"
                 value={newInput.institution}
                 onChange={handleInputChange}
+                placeholder="Institution's Name"
+                required
                 /> 
             </div>
             <div className="label_input_container">
@@ -55,23 +57,29 @@ export function FormEducation({formsInput, numbForm}) {
                 name = "degree"
                 value={newInput.degree}
                 onChange={handleInputChange}
+                placeholder= "Degree's Name"
+                required
                 /> 
             </div>
             <div className="label_input_container">
                 <label>Graduation Date:</label>
                 <input 
-                name ="graduationDate "
+                name ="graduationDate"
                 value={newInput.graduationDate}
                 onChange={handleInputChange}
                 type="date" /> 
             </div>
             <div className="label_input_container">
                 <label>Education Description:</label>
-                <input 
+                <textarea 
                 name = "academicDescription"
+                placeholder='Less than 250 characters'
                 value={newInput.academicDescription}
+                maxLength={250}
                 onChange={handleInputChange}
-                type="text" /> 
+                type="text" 
+              
+                /> 
             </div>
 
             <div className="submit_forms_button">

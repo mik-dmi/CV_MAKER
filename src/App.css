@@ -4,37 +4,67 @@
   --titles-font-size: 0.9rem;
 }
 #root {
-  max-width: 1280px;
+
   margin: 0 ;
   padding: 2rem;
 }
-html {
-  font-size: 25px; /* Set the root font size to 10px (adjust as needed) */
+html, body {
+  font-size: 25px; 
   margin: 0;
 }
 h1, h2, h3 {
   margin: 0;
 }
 
+body{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(to right bottom, rgba(236, 182, 245, 0.547) , rgba(246, 233, 144, 0.499) 70%);
+
+  height: fit-content;
+}
 /*----------------------------------- Global Rules ---------------------------------*/
 .body_container{
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  justify-content: center;
   margin: 0;
+  width: 100%;
+  gap:2rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  /* Add your responsive styles here */
+  .body_container{
+    flex-direction: column;
+
+}
 }
 .left_side_of_body{
-  height: 100vh;
-  width: 35%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+.right_side_of_body{
+  width: 21rem; 
+  height: 29.7rem; 
+  margin: 1rem; 
+  background-color: #fff; 
+  border: 1px solid #000; 
+  box-shadow: 0px 0px 0.2rem rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
 }
 
 .general_forms_container{
   display: flex;
   flex-direction: column;
-  width: fit-content;
-  border: 1px solid black;
+  width: 20rem;
+  border: 0.01rem solid rgb(45, 44, 44);
   border-radius: 0.3rem;
-  margin: 2rem; 
+  margin: 1rem; 
 }
 .general_forms_button{
   display: flex;
@@ -43,13 +73,28 @@ h1, h2, h3 {
   justify-content:space-between;
   align-items: center;
   cursor: pointer;
+  border-radius: 0.3rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.8rem;
+  border: 0rem;
+  background-color:#a29768b7; 
+  color: white;
+  font-size: 1.5rem;  
+  transition: border-radius 1.3s  ease-in-out;
+}
+.general_forms_button:hover{
+  background-color:#726a47c8;
+}
+.general_forms_button.active{
+  border-radius: 0.3rem 0.3rem 0rem 0rem;
+  transition: border-radius 0.3s  ease-in-out;
+  border-bottom: 0.01rem solid rgb(45, 44, 44);
 }
 .general_forms_button img.active{
   transform: rotate(180deg);
 }
 .imgChev{
-  width: 5%; 
-  height: 40%;
+  width: 10%; 
+  height: 50%;
 }
 .title_forms{
   font-size: 1rem;
@@ -62,14 +107,44 @@ h1, h2, h3 {
 }
 label{
   font-weight: 500;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
 }
-input{
-  font-size: 0.6rem; 
+input, textarea{
+  font-size: 0.9rem; 
+  padding: 0.1rem;
+  margin :0.2rem 0rem 0rem 0.2rem;
+  border:0;
+  border-radius: 0.2rem;
+  width: 100%;
 }
+input:focus{
+  outline: none;
+}
+input:valid{
+  border: 0.1rem solid rgb(18, 164, 18);
+}
+input:invalid{
+  border: 0.1rem solid rgb(245, 56, 23);
+}
+
+input[name="professionalDescription"], input[name="academicDescription"],input[name="graduationDate"] {
+  border: none; 
+
+}
+textarea:focus,[name="professionalDescription"]:focus, input[name="academicDescription"]:focus, input[name="graduationDate"]:focus{
+  outline: #000 solid 0.1rem;
+}
+textarea{
+  resize: none;
+  min-height: 4rem;
+  
+}
+
+
 .label_input_container{
   display: flex;
-  padding: 0.8rem 1.8rem 0rem 0.8rem;
+  padding: 0.8rem 1.8rem 0rem 1rem;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -79,17 +154,35 @@ input{
     margin: 1rem;
     margin-bottom: 0rem;
   }
-  .submit_button{
-    font-size: 0.8em;
-    border-radius: 0.2em;
-    padding: 0.3rem 0.6em 0.3em 0.6em;
-    font-weight: 500;
-  }
+.submit_button{
+  background-color:#6acde3;
+  color:white;
+  font-size: 1em;
+  font-weight: 700;
+  border-radius: 0.2em;
+  padding: 0.5rem 0.8em 0.5em 0.8em;
+  margin-bottom: 0.5rem;
+  border: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.submit_button:hover{
+  cursor: pointer;
+  background-color:#5cb8cd;
+}
+.submit_button:active {
+  background-color: #3c8292;
+  transform: scale(0.9);
+}
+
+
+
+
   .accordion_toggle{
     height: fit-content;
     opacity:0;
-    transition: 
-    opacity 0.3s ease-in-out,
+    background:#efe1a1b7;
+   transition: 
+    opacity 0.3s ease-in-out, 
     height 0.3s 0.3s ease-in-out;
     overflow: hidden;
   }
@@ -97,57 +190,56 @@ input{
     opacity:1;
     transition: 
     height 0.3s ease-in-out,
-    opacity 0.3s 0.3s ease-in-out;
-    padding: 0.5rem;
+    opacity 0.3s 0.1s ease-in-out;
+    padding: 0.5rem 0rem 0rem 0rem;
+    height: fit-content !important;
+    border-bottom: 0.05rem solid black;
   }
-  .forms{
-    padding-bottom: 0.5rem;
+  .general_forms_container .accordion_toggle.animated:last-child{
+    border-bottom:none;
+    border-radius: 0.3rem;
   }
-  .add_another_forms_container{
-    color: #c51010;
-    margin-right: 0.5rem;
-  }
-  .delete_forms_container{
-    color: aquamarine;
-    margin-right: 0.5rem; 
-  }
+
+ 
 .delete_forms_button, .another_forms_button{
   background-color: transparent;
-  border:0.1rem solid rgb(194, 45, 45) ;
+  border:0.15rem dashed rgb(194, 45, 45) ;
   font-size: 0.8rem;
   color: red;
   cursor: pointer;
+  font-size: 1rem;
+  padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+  font-weight: 600;
+  width: 7rem;
+ 
 }
 .another_forms_button{
   background-color: transparent;
-  border:0.1rem dashed rgb(51, 109, 190) ;
+  border:0.15rem dashed rgb(51, 109, 190);
   color: rgb(51, 109, 190) ;
-  display: flex;
+  
 }
 .delete_forms_button:hover{
   color: darkred;
+  border:0.15rem dashed darkred;
 }
 .another_forms_button:hover{
   color: rgb(13, 47, 95);
+  border:0.15rem dashed rgb(13, 47, 95) ;
 }
 .bottom_buttons{
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 
 /* -------------------------------- cv BUILDER -------------------------------------------------- */
 /*--------------------------------- Beginning Header --------------------------------------------------- */
-.right_side_of_body{
-  width: 21rem; /* A4 width in rem units (210mm) */
-  height: 29.7rem; /* A4 height in rem units (297mm) */
-  margin: 0 auto; /* Center the container horizontally on the page */
-  background-color: #fff; /* Set a background color if needed */
-  border: 1px solid #000; /* Add a border if desired */
-  box-shadow: 0px 0px 0.2rem rgba(0, 0, 0, 0.2);
-  font-family: Arial, sans-serif;
-}
+
 .header_container{
   text-align: center;
   margin-bottom: 0.5rem;
@@ -172,11 +264,7 @@ input{
   text-align:center;
   max-width: fit-content;
 }
-.contact_info li i {
-  display: flex;
-  justify-content: center;
 
-}
 /* ------------------------- End Header -------------------------*/
 .individual_education_section, .professional_section {
   display: flex;
@@ -190,8 +278,9 @@ h2 {
   color: var(--titles-bg-color);
   padding-bottom: 0.1rem;
 }
-.education_container{
+.education_container ,.experience_container{
   font-size: calc(var(--titles-font-size) * 0.7);
+  width: 100%;
 }
 
 #education, #experience{
@@ -203,14 +292,26 @@ h2 {
 
 .education_details, .professional_details {
   list-style: none;
-  padding: 0.1rem 0rem 0rem 0.2rem;
+  padding: 0.1rem 0.4rem 0rem 0.2rem;
   margin: 0rem;
+  width: 95%;
+  
 }
 .education_degree, .professional_company {
   font-style: italic;
   font-size: calc(var(--titles-font-size) * 0.7);
-
 }
+.degree_and_graduationDate, .company_and_dates{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.1rem;
+}
+.company_and_dates{
+  display: flex;
+  align-items: center;
+}
+
+
 .education_graduation, .professional_location, .professional_dates {
   color: #555;
 }

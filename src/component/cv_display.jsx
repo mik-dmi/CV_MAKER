@@ -6,6 +6,8 @@ export function CvDisplay({generalData,educationData, professionalData}){
     return(
         <div className='right_side_of_body'>
         <header className="header_container">
+        {(generalData.fullName || generalData.phoneNumber || generalData.emil || generalData.linkedIn) &&(
+          <>
           <h1>{generalData.fullName}</h1>
           <ul className="contact_info">
             <li>
@@ -18,17 +20,22 @@ export function CvDisplay({generalData,educationData, professionalData}){
                 <i className='bx bxl-linkedin-square'>{generalData.linkedIn}</i>
             </li>
           </ul>
+          </>
+        )}
         </header>
 
         <section id="education">
           <h2>Education</h2>
           <div className="education_container">
-            {educationData.map((education, index)=>(
+            {educationData.filter((education) => education.degree || education.institution 
+            || education.graduationDate || education.academicDescription).map((education, index)=>(
             <div key={index*5} className="individual_education_section">
               <h3>{education.degree}</h3>
               <ul className = "education_details">
-                <li className = "education_degree">{education.institution}</li>
-                <li className = "education_graduation">{education.graduationDate}</li>
+                <li className="degree_and_graduationDate">
+                  <li className = "education_degree">{education.institution}</li>
+                  <li className = "education_graduation">{education.graduationDate}</li>
+                </li>
                 <li className = "bullet_point education_description">{education.academicDescription}</li>
               </ul>
             </div>  
@@ -39,13 +46,19 @@ export function CvDisplay({generalData,educationData, professionalData}){
         <section id="experience">
           <h2>Professional Experience</h2>
           <div className="experience_container">
-            {professionalData.map((professional, index)=>(
+            {professionalData.filter((professional) => professional.company || professional.positionName 
+            || professional.location || professional.startDate || professional.endDate || professional.professionalDescription).map((professional, index)=>(
             <div key={index*5} className="professional_section">
-              <h3>{professional.company}</h3>
+              <h3>{professional.positionName}</h3>
               <ul className="professional_details"> 
-                  <li className="professional_company">{professional.positionName}</li>
-                  <li className="professional_location">{professional.location}</li>
-                  <li className="professional_dates">{professional.startDate} - {professional.endDate}</li>
+                  <li className="company_and_dates">
+                    <li className="professional_company">{professional.company}</li>
+                    <li className="professional_dates">
+                      <div>{professional.startDate}</div> 
+                      <div>{professional.endDate}</div>
+                    </li>
+                  </li>
+                  {/*<li className="professional_location">{professional.location}</li>*/}
                   <li className="bullet_point professional_description">{professional.professionalDescription}</li>
               </ul>
             </div>

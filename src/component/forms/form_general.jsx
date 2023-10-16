@@ -41,34 +41,43 @@ export function FormGeneral({formsInput}) {
                 <input 
                 type="text"
                 name="fullName"
+                placeholder='Your Name'
                 value={newInput.fullName}
                 onChange={handleInputChange}
+                required
                 /> 
             </div>
             <div className="label_input_container">
                 <label>Phone Number:</label> 
                 <input 
-                type="tel"    
+                type="tel" 
+                placeholder='+49...'   
                 name = "phoneNumber"
                 value={newInput.phoneNumber}
                 onChange={handleInputChange}
+                required
                 /> 
             </div>
             <div className="label_input_container">
                 <label>Email:</label>
                 <input 
                 name = "email"
+                placeholder='example@gmail.com' 
                 value={newInput.email}
                 onChange={handleInputChange}
+                required
                 type="email" /> 
+                
             </div>
             <div className="label_input_container">
                 <label>LinkedIn:</label> 
                 <input 
                 type="url"    
                 name = "linkedIn"
+                placeholder='linkedin.com/in/...' 
                 value={newInput.linkedIn}
                 onChange={handleInputChange}
+                required
                 /> 
             </div>
                 <div className="submit_forms_button">

@@ -46,6 +46,8 @@ export function FormProfessional({formsInput, numbForm}){
                 name="positionName"
                 value={newInput.positionName}
                 onChange={handleInputChange}
+                placeholder="Position's Name"
+                required
                 /> 
             </div>
             <div className="label_input_container">
@@ -54,25 +56,31 @@ export function FormProfessional({formsInput, numbForm}){
                 type="text"    
                 name = "company"
                 value={newInput.company}
+                placeholder="Company's Name"
                 onChange={handleInputChange}
+                
+                required
                 /> 
             </div>
-            <div className="label_input_container">
+            {/*<div className="label_input_container">
                 <label>Location:</label> 
                 <input 
                 type="text"    
                 name = "location"
                 value={newInput.location}
                 onChange={handleInputChange}
+                required
                 /> 
-            </div>
+            </div>*/}
             <div className="label_input_container">
                 <label>Starting Date:</label>
                 <input 
                 name ="startDate"
                 value={newInput.startDate}
                 onChange={handleInputChange}
-                type="date" /> 
+                type="date"
+                required
+                /> 
             </div>
             <div className="label_input_container">
                 <label>Ending Date:</label>
@@ -80,14 +88,19 @@ export function FormProfessional({formsInput, numbForm}){
                 name ="endDate"
                 value={newInput.endDate}
                 onChange={handleInputChange}
-                type="date" /> 
+                type="date"
+                required
+                
+                 /> 
             </div>
             <div className="label_input_container">
                 <label>Description:</label>
-                <input 
+                <textarea
                 name = "professionalDescription"
                 value={newInput.professionalDescription}
                 onChange={handleInputChange}
+                placeholder='Less than 250 characters'
+                maxLength={250}
                 type="text" /> 
             </div>
 
