@@ -11,13 +11,16 @@ export function CvDisplay({generalData,educationData, professionalData}){
           <h1>{generalData.fullName}</h1>
           <ul className="contact_info">
             <li>
-                <i className='bx bxs-phone'>{generalData.phoneNumber}</i>
+                <i className='bx bxs-phone'></i>
+                <span>{generalData.phoneNumber}</span>
             </li>
             <li>
-                <i className='bx bxs-envelope'>{generalData.email}</i>
+                <i className='bx bxs-envelope'></i>
+                <span>{generalData.email}</span>
             </li>
             <li>
-                <i className='bx bxl-linkedin-square'>{generalData.linkedIn}</i>
+                <i className='bx bxl-linkedin-square'></i>
+                <span>{generalData.linkedIn}</span>
             </li>
           </ul>
           </>
