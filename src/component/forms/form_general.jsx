@@ -72,11 +72,12 @@ export function FormGeneral({formsInput}) {
             <div className="label_input_container">
                 <label>LinkedIn:</label> 
                 <input 
-                type="url"    
+                type="text"    
                 name = "linkedIn"
                 placeholder='linkedin.com/in/...' 
                 value={newInput.linkedIn}
                 onChange={handleInputChange}
+                pattern="^linkedin\.com\/in\/.*$"
                 required
                 /> 
             </div>
