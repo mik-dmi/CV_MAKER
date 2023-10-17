@@ -1,8 +1,5 @@
-# React + Vite
+# Resume Builder Web Application - React App (Link for the Live Demo: https://cv-maker-bay.vercel.app/ )
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+• Description: Developed a Resume Builder Web Application using React, allowing users to create and edit professional resumes. The application facilitates the input of personal information, educational background, and work experience, automatically transforming this data into an elegant, responsive resume layout.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+• Results: Successfully developed a polished interface, showcasing React and CSS skills.
